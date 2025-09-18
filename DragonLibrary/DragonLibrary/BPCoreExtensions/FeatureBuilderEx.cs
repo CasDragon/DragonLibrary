@@ -79,22 +79,10 @@ namespace DragonLibrary.BPCoreExtensions
             };
             return configurator.AddComponent(element);
         }
-        public static TBuilder AddCriticalRangeBonus<T1, TBuilder>(
-            this BaseUnitFactConfigurator<T1, TBuilder> configurator,
-            int? bonus)
-            where T1 : BlueprintUnitFact
-            where TBuilder : BaseUnitFactConfigurator<T1, TBuilder>
-        {
-            CriticalRangeBonus element = new()
-            {
-                bonus = bonus ?? 1,
-            };
-            return configurator.AddComponent(element);
-        }
         public static TBuilder AddArcanistSpellSlotsComponent<T1, TBuilder>(
             this BaseUnitFactConfigurator<T1, TBuilder> configurator,
             int? bonusSlots,
-            int[]? Levels)
+            int[] Levels)
             where T1 : BlueprintUnitFact
             where TBuilder : BaseUnitFactConfigurator<T1, TBuilder>
         {
@@ -107,7 +95,7 @@ namespace DragonLibrary.BPCoreExtensions
         }
         public static TBuilder AddSpellToBookComponent<T1, TBuilder>(
             this BaseUnitFactConfigurator<T1, TBuilder> configurator,
-            BlueprintAbilityReference? spell,
+            BlueprintAbilityReference spell,
             int? spellLevel = null)
             where T1 : BlueprintUnitFact
             where TBuilder : BaseUnitFactConfigurator<T1, TBuilder>
