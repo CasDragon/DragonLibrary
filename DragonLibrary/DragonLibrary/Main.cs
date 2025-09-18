@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using System.Text;
+using DragonLibrary.Utils;
 using HarmonyLib;
+using Kingmaker.Blueprints.JsonSystem;
 using UnityModManagerNet;
 
 namespace DragonLibrary
@@ -32,6 +34,33 @@ namespace DragonLibrary
         public static void OnGUI(UnityModManager.ModEntry modEntry)
         {
 
+        }
+
+        [HarmonyPatch(typeof(BlueprintsCache))]
+        public static class BlueprintsCaches_Patch
+        {
+            private static bool Initialized = false;
+
+            [HarmonyPriority(Priority.Last)]
+            [HarmonyPatch(nameof(BlueprintsCache.Init)), HarmonyPostfix]
+            public static void Init_Postfix()
+            {
+                try
+                {
+                    if (Initialized)
+                    {
+                        Log.Log("Already initialized blueprints cache.");
+                        return;
+                    }
+                    Initialized = true;
+                    Log.Log("Checking for mods for compatibility patches");
+                    ModCompat.CheckForMods();
+                }
+                catch (Exception e)
+                {
+                    Log.Log(string.Concat("Failed to initialize.", e));
+                }
+            }
         }
     }
 }

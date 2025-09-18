@@ -25,7 +25,7 @@ namespace DragonLibrary.Utils
     }
 
     [AttributeUsage(AttributeTargets.Method)]
-    internal class DragonSetting : Attribute
+    public class DragonSetting : Attribute
     {
         private readonly SettingCategories category;
         private readonly string name;
@@ -48,7 +48,7 @@ namespace DragonLibrary.Utils
         public bool EnabledByDefault
         { get { return this.enabledByDefault; } }
     }
-    internal class SettingsAction
+    public class SettingsAction
     {
         private static string RootKey = "";
 

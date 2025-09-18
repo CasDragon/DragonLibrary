@@ -45,6 +45,20 @@ namespace DragonLibrary.BPCoreExtensions
             };
             return configurator.AddComponent(element);
         }
+        public static TBuilder AddArcanistSpellSlotsComponent<T1, TBuilder>(
+            this BaseUnitFactConfigurator<T1, TBuilder> configurator,
+            int? bonusSlots,
+            int[]? Levels)
+            where T1 : BlueprintUnitFact
+            where TBuilder : BaseUnitFactConfigurator<T1, TBuilder>
+        {
+            AddArcanistSpellSlots element = new()
+            {
+                Amount = bonusSlots ?? 1,
+                Levels = Levels ?? [1]
+            };
+            return configurator.AddComponent(element);
+        }
         public static TBuilder AddSpellToBookComponent<T1, TBuilder>(
             this BaseUnitFactConfigurator<T1, TBuilder> configurator,
             BlueprintAbilityReference? spell,

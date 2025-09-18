@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace DragonLibrary.Utils
 {
     [AttributeUsage(AttributeTargets.Field)]
-    internal class DragonLocalizedString : Attribute
+    public class DragonLocalizedString : Attribute
     {
         private readonly string key;
         private readonly string ENvalue;
@@ -36,10 +36,10 @@ namespace DragonLibrary.Utils
     }
 
 
-    internal class LocalizedStringHelper
+    public class LocalizedStringHelper
     {
         [DragonLocalizedString(disabledcontentstring, "Disabled Content")]
-        internal const string disabledcontentstring = "dragonlibrary.disabled";
+        public const string disabledcontentstring = "dragonlibrary.disabled";
 
         public static void CreateLocalizationFile(string path)
         {
