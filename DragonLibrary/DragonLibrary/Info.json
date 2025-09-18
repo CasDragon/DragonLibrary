@@ -1,0 +1,12 @@
+﻿{
+  "Id": "DragonLibrary",
+  "DisplayName": "DragonLibrary",
+  "Author": "",
+  "Version": "1.0.0",
+  "ManagerVersion": "0.27.11",
+  "Requirements": [],
+  "AssemblyName": "DragonLibrary.dll",
+  "EntryMethod": "DragonLibrary.Main.Load",
+  "HomePage": "",
+  "Repository": ""
+}
