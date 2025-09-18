@@ -27,6 +27,10 @@ namespace DragonLibrary.NewComponents
                 }
                 return ability.Get();
             }
+            set
+            {
+                m_Ability = value.ToReference<BlueprintAbilityReference>(); ;
+            }
         }
         public void OnEventAboutToTrigger(RuleCalculateAbilityParams evt)
         {

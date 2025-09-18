@@ -27,6 +27,10 @@ namespace DragonLibrary.NewComponents
                 }
                 return buff.Get();
             }
+            set
+            {
+                m_Buff = value.ToReference<BlueprintBuffReference>(); ;
+            }
         }
         public void OnEventAboutToTrigger(RuleCalculateAbilityParams evt)
         {

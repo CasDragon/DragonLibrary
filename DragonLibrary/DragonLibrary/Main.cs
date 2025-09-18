@@ -41,7 +41,7 @@ namespace DragonLibrary
         {
             private static bool Initialized = false;
 
-            [HarmonyPriority(Priority.Last)]
+            [HarmonyPriority(Priority.First)]
             [HarmonyPatch(nameof(BlueprintsCache.Init)), HarmonyPostfix]
             public static void Init_Postfix()
             {

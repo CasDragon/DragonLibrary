@@ -12,6 +12,8 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 
@@ -19,6 +21,50 @@ namespace DragonLibrary.BPCoreExtensions
 {
     public static class FeatureBuilderEx
     {
+        public static TBuilder AddBonusToAbilityDC<T1, TBuilder>(
+            this BaseUnitFactConfigurator<T1, TBuilder> configurator,
+            BlueprintAbility ability,
+            StatType stat,
+            ModifierDescriptor descriptor)
+            where T1 : BlueprintUnitFact
+            where TBuilder : BaseUnitFactConfigurator<T1, TBuilder>
+        {
+            BonusToAbilityDC element = new()
+            {
+                Ability = ability,
+                Stat = stat,
+                Descriptor = descriptor
+            };
+            return configurator.AddComponent(element);
+        }
+        public static TBuilder AddBonusToBuffDC<T1, TBuilder>(
+            this BaseUnitFactConfigurator<T1, TBuilder> configurator,
+            BlueprintBuff buff,
+            StatType stat,
+            ModifierDescriptor descriptor)
+            where T1 : BlueprintUnitFact
+            where TBuilder : BaseUnitFactConfigurator<T1, TBuilder>
+        {
+            BonusToBuffDC element = new()
+            {
+                Buff = buff,
+                Stat = stat,
+                Descriptor = descriptor
+            };
+            return configurator.AddComponent(element);
+        }
+        public static TBuilder AddCriticalRangeBonus<T1, TBuilder>(
+            this BaseUnitFactConfigurator<T1, TBuilder> configurator,
+            int? bonus)
+            where T1 : BlueprintUnitFact
+            where TBuilder : BaseUnitFactConfigurator<T1, TBuilder>
+        {
+            CriticalRangeBonus element = new()
+            {
+                bonus = bonus ?? 1,
+            };
+            return configurator.AddComponent(element);
+        }
         public static TBuilder AddCriticalMultiplierBonus<T1, TBuilder>(
             this BaseUnitFactConfigurator<T1, TBuilder> configurator,
             int? bonus,
