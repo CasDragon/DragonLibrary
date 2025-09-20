@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Kingmaker.Localization;
 using ModMenu.Settings;
+using UnityModManagerNet;
 
 namespace DragonLibrary.Utils
 {
@@ -52,12 +53,12 @@ namespace DragonLibrary.Utils
     {
         private static string RootKey = "";
 
-        public static void InitializeSettings(string rootKey, string modName)
+        public static void InitializeSettings(string rootKey, string modName, UnityModManager.ModEntry entry)
         {
             RootKey = rootKey;
             SettingsBuilder builder = SettingsBuilder.New(RootKey, CreateString(GetKey($"{modName}-title"), modName))
                     .SetMod(Main.entry);
-            var settings = Assembly.GetExecutingAssembly().GetTypes()
+            var settings = entry.Assembly.GetTypes()
                 .SelectMany(t => t.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static))
                 .Where(m => m.GetCustomAttribute<DragonSetting>() is not null)
                 .SelectMany(a => a.GetCustomAttributes())

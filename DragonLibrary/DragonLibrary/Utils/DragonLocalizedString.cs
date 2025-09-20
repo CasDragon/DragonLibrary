@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Newtonsoft.Json;
+using UnityModManagerNet;
 
 namespace DragonLibrary.Utils
 {
@@ -41,10 +42,10 @@ namespace DragonLibrary.Utils
         [DragonLocalizedString(disabledcontentstring, "Disabled Content")]
         public const string disabledcontentstring = "dragonlibrary.disabled";
 
-        public static void CreateLocalizationFile(string path)
+        public static void CreateLocalizationFile(string path, UnityModManager.ModEntry entry)
         {
             Main.Log.Log("Creating localization file! DEBUG");
-            var fields = Assembly.GetExecutingAssembly().GetTypes()
+            var fields = entry.Assembly.GetTypes()
                 .SelectMany(t => t.GetFields(BindingFlags.NonPublic | BindingFlags.Static))
                 .Where(t => t.GetCustomAttribute<DragonLocalizedString>() is not null);
             List<LocString> locales = [];
@@ -63,9 +64,9 @@ namespace DragonLibrary.Utils
             File.WriteAllText(path: Path.Combine(path, "LocalizedStrings.json"), json);
         }
 
-        public static string GetModFolderPath()
+        public static string GetModFolderPath(UnityModManager.ModEntry entry)
         {
-            return new FileInfo(Assembly.GetExecutingAssembly().Location).Directory.FullName;
+            return new FileInfo(entry.Assembly.Location).Directory.FullName;
         }
 
         internal class LocString

@@ -5,7 +5,7 @@
 		<TargetFramework>net481</TargetFramework>
 		<AssemblyName>DragonLibrary</AssemblyName>
 		<Description>DragonLibrary</Description>
-		<Version>1.0.0</Version>
+		<Version>1.0.2</Version>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>latest</LangVersion>
 		<RootNamespace>DragonLibrary</RootNamespace>
@@ -23,9 +23,9 @@
 		<Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\Newtonsoft.Json.dll*" Private="false" />
 		<Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\UniRx.dll*" Private="false" />
 		<Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\UnityModManager\0Harmony.dll*" Private="false" />
-		<Reference Include="C:\Users\Kyle\source\repos\References\BlueprintCore.dll" private="false" />
-		<Reference Include="$(WrathInstallDir)\Mods\ModMenu\ModMenu.dll" />
-		<Reference Include="$(WrathInstallDir)\Mods\WrathScalingItemDCs\WrathScalingItemDCs.dll" />
+		<Reference Include="C:\Users\Kyle\source\repos\References\BlueprintCore.dll" Private="false" />
+		<Reference Include="$(WrathInstallDir)\Mods\ModMenu\ModMenu.dll" Private="false"/>
+		<Reference Include="$(WrathInstallDir)\Mods\WrathScalingItemDCs\WrathScalingItemDCs.dll" Private="false"/>
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="Info.json" CopyToOutputDirectory="PreserveNewest" />
@@ -33,9 +33,18 @@
 	<Target Name="Deploy" AfterTargets="Build">
 		<ItemGroup>
 			<Files Include="$(TargetDir)\**\*.*" />
+			<Files Remove="$(TargetDir)\**\*.dll" />
+			<Files Remove="$(TargetDir)\**\*.pdb" />
+			<Files Remove="$(TargetDir)\**\*.cache" />
+			<Files Remove="$(TargetDir)\**\UnityModManager.xml" />
+			<Files Include="$(TargetDir)\**\$(AssemblyName).dll" />
+			<Files Include="$(TargetDir)\**\$(AssemblyName).pdb" />
+			<ToDelete Include="$(TargetDir)\**\*.*" />
+			<ToDelete Remove="@(Files)" />
 		</ItemGroup>
 
 		<Copy SourceFiles="@(Files)" DestinationFiles="@(Files->'$(WrathInstallDir)\Mods\$(AssemblyName)\%(RecursiveDir)%(Filename)%(Extension)')" />
+		<Delete Files="@(ToDelete)" />
 		<ZipDirectory SourceDirectory="$(MSBuildProjectDirectory)\$(OutputPath)" DestinationFile="$(MSBuildProjectDirectory)\$(OutputPath)\..\$(AssemblyName)-$(Version).zip" Overwrite="true" />
 	</Target>
 	<ItemGroup>

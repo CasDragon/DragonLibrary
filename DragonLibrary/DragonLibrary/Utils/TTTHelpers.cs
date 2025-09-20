@@ -229,7 +229,7 @@ namespace DragonLibrary.Utils
             return config;
         }
 
-        internal class ObjectDeepCopier
+        public class ObjectDeepCopier
         {
             internal class ArrayTraverse
             {
@@ -293,7 +293,7 @@ namespace DragonLibrary.Utils
                 if (type == typeof(string)) return true;
                 return (type.IsValueType & type.IsPrimitive);
             }
-            internal static object Clone(object originalObject)
+            public static object Clone(object originalObject)
             {
                 return InternalCopy(originalObject, new Dictionary<object, object>(new ReferenceEqualityComparer()));
             }

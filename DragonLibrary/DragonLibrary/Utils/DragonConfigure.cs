@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using UnityModManagerNet;
 
 namespace DragonLibrary.Utils
 {
@@ -32,9 +33,9 @@ namespace DragonLibrary.Utils
 
     public class DragonConfigureAction
     {
-        public static void DoPatches()
+        public static void DoPatches(UnityModManager.ModEntry entry)
         {
-            var methods = Assembly.GetExecutingAssembly().GetTypes()
+            var methods = entry.Assembly.GetTypes()
                 .SelectMany(t => t.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static))
                 .Where(m => m.IsStatic && m.GetCustomAttribute<DragonConfigure>() is not null);
             foreach (ConfigurePriority priority in Enum.GetValues(typeof(ConfigurePriority)))
