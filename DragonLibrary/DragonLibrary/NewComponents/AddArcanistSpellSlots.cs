@@ -11,7 +11,7 @@ namespace DragonLibrary.NewComponents
     [AllowedOn(typeof(BlueprintFeature), false)]
     [TypeId("8D7DDA99-E1A0-451D-98C8-F6BA07415FC2")]
     [Serializable]
-    internal class AddArcanistSpellSlots : UnitFactComponentDelegate, IGetSpellSlotsCountHandler
+    public class AddArcanistSpellSlots : UnitFactComponentDelegate, IGetSpellSlotsCountHandler
     {
         /* For Badger
         TypeID is 8D7DDA99-E1A0-451D-98C8-F6BA07415FC2

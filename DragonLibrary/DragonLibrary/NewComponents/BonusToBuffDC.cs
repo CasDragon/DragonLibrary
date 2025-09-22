@@ -14,7 +14,7 @@ namespace DragonLibrary.NewComponents
     [AllowMultipleComponents]
     [AllowedOn(typeof(BlueprintUnitFact), false)]
     [TypeId("2f80d83c-70b7-402d-8dec-6aee57df9043")]
-    internal class BonusToBuffDC : UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleCalculateAbilityParams>, IRulebookHandler<RuleCalculateAbilityParams>, ISubscriber, IInitiatorRulebookSubscriber
+    public class BonusToBuffDC : UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleCalculateAbilityParams>, IRulebookHandler<RuleCalculateAbilityParams>, ISubscriber, IInitiatorRulebookSubscriber
     {
         public BlueprintBuff Buff
         {

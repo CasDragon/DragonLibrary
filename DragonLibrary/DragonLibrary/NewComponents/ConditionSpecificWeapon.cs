@@ -8,7 +8,7 @@ namespace DragonLibrary.NewComponents
 {
     [TypeId("54600673-2CCD-4A65-BEBE-768A652B8CB7")]
     [Serializable]
-    internal class ConditionSpecificWeapon : ContextConditionIsWeaponEquipped
+    public class ConditionSpecificWeapon : ContextConditionIsWeaponEquipped
     {
         [SerializeField]
         public SimpleBlueprint weapon;
