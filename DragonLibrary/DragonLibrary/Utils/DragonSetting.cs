@@ -57,7 +57,7 @@ namespace DragonLibrary.Utils
         {
             RootKey = rootKey;
             SettingsBuilder builder = SettingsBuilder.New(RootKey, CreateString(GetKey($"{modName}-title"), modName))
-                    .SetMod(Main.entry);
+                    .SetMod(entry);
             var settings = entry.Assembly.GetTypes()
                 .SelectMany(t => t.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static))
                 .Where(m => m.GetCustomAttribute<DragonSetting>() is not null)
