@@ -27,7 +27,7 @@ namespace DragonLibrary.Utils
             homebrewarchetypes = IsModEnabled("HomebrewArchetypes", "owlcat");
             tttbase = IsModEnabled("TabletopTweaks-Base");
             cop = IsModEnabled("CharacterOptionsPlus");
-            pp = IsModEnabled("PrestigePlugs");
+            pp = IsModEnabled("PrestigePlus");
             randomequipment = IsModEnabled("RandomEquipment");
             scalingequip = IsModEnabled("WrathScalingItemDCs");
             tttcore = IsModEnabled("TabletopTweaks-Core.dll") || IsModEnabled("TabletopTweaks-Core");
