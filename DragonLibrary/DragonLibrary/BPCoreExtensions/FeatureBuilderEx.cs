@@ -3,6 +3,7 @@ using DragonLibrary.NewComponents;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Weapons;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
@@ -57,6 +58,18 @@ namespace DragonLibrary.BPCoreExtensions
             CriticalRangeBonus element = new()
             {
                 bonus = bonus ?? 1,
+            };
+            return configurator.AddComponent(element);
+        }
+        public static TBuilder AddSneakAttackRollTrigger<T1, TBuilder>(
+            this BaseUnitFactConfigurator<T1, TBuilder> configurator,
+            ActionList actionList)
+            where T1 : BlueprintUnitFact
+            where TBuilder : BaseUnitFactConfigurator<T1, TBuilder>
+        {
+            AddSneakAttackRollTrigger element = new()
+            {
+                Action = actionList
             };
             return configurator.AddComponent(element);
         }
