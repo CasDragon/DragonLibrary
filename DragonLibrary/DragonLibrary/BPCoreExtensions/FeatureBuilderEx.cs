@@ -179,5 +179,27 @@ namespace DragonLibrary.BPCoreExtensions
             element.ValidWeaponAttackTypes = ValidWeaponAttackTypes;
             return configurator.AddComponent(element);
         }
+        public static TBuilder AddFeatMythicScaling<T1, TBuilder>(
+            this BaseUnitFactConfigurator<T1, TBuilder> configurator,
+            int? Value = 1,
+            StatType? Stat = StatType.Unknown,
+            BlueprintFeatureReference Feature = null,
+            BlueprintParametrizedFeatureReference ParametrizedFeature = null,
+            string ScalingType = "Full",
+            ModifierDescriptor? Descriptor = ModifierDescriptor.UntypedStackable)
+            where T1 : BlueprintUnitFact
+            where TBuilder : BaseUnitFactConfigurator<T1, TBuilder>
+        {
+            FeatMythicScaling element = new()
+            {
+                Value = Value ?? 1,
+                Stat = Stat ?? StatType.Charisma,
+                Feature = Feature ?? null,
+                ParametrizedFeature = ParametrizedFeature ?? null,
+                ScalingType = ScalingType ?? "Full",
+                Descriptor = Descriptor ?? ModifierDescriptor.UntypedStackable
+            };
+            return configurator.AddComponent(element);
+        }
     }
 }

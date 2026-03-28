@@ -5,7 +5,7 @@
 		<TargetFramework>net481</TargetFramework>
 		<AssemblyName>DragonLibrary</AssemblyName>
 		<Description>DragonLibrary</Description>
-		<Version>1.0.5</Version>
+		<Version>1.0.6</Version>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>latest</LangVersion>
 		<RootNamespace>DragonLibrary</RootNamespace>
@@ -26,7 +26,7 @@
 		<Reference Include="$(WrathInstallDir)\Mods\ModMenu\ModMenu.dll" />
 		<Reference Include="$(WrathInstallDir)\Mods\WrathScalingItemDCs\WrathScalingItemDCs.dll" />
 		<Reference Include="$(WrathInstallDir)\Mods\TabletopTweaks-Core\TabletopTweaks-Core.dll" />
-		<Reference Include="$(WrathInstallDir)\Mods\TabletopTweaks-Base\TabletopTweaks-Base.dll*" Publicize="true" />
+		<Reference Include="$(WrathInstallDir)\Mods\TabletopTweaks-Base\TabletopTweaks-Base.dll" Publicize="true" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="Info.json" CopyToOutputDirectory="PreserveNewest" />

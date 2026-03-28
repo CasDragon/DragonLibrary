@@ -44,7 +44,7 @@ namespace DragonLibrary.Utils
 
         public static void CreateLocalizationFile(string path, UnityModManager.ModEntry entry)
         {
-            Main.Log.Log("Creating localization file! DEBUG");
+            //Main.Log.Log("Creating localization file! DEBUG");
             var fields = entry.Assembly.GetTypes()
                 .SelectMany(t => t.GetFields(BindingFlags.NonPublic | BindingFlags.Static))
                 .Where(t => t.GetCustomAttribute<DragonLocalizedString>() is not null);

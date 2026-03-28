@@ -1,6 +1,7 @@
 ﻿using DragonLibrary.NewComponents.Events;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace DragonLibrary.NewComponents
 {
     [AllowMultipleComponents]
     [AllowedOn(typeof(BlueprintFeature), false)]
+    [AllowedOn(typeof(BlueprintUnitFact), false)]
+    [AllowedOn(typeof(BlueprintUnit), false)]
     [TypeId("8D7DDA99-E1A0-451D-98C8-F6BA07415FC2")]
     [Serializable]
     public class AddArcanistSpellSlots : UnitFactComponentDelegate, IGetSpellSlotsCountHandler

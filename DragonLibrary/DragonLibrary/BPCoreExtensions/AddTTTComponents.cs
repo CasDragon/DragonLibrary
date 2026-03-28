@@ -21,7 +21,11 @@ namespace DragonLibrary.BPCoreExtensions
             where T1 : BlueprintUnitFact
             where TBuilder : BaseUnitFactConfigurator<T1, TBuilder>
         {
-            AddDamageResistancePhysical component = TTTHelpers.CreateCopy(BuffRefs.ArmorFocusHeavyMythicFeatureVar1SubBuff.Reference.Get().GetComponent<AddDamageResistancePhysical>());
+            AddDamageResistancePhysical comp = BuffRefs.ArmorFocusHeavyMythicFeatureVar1SubBuff.Reference.Get().GetComponent<AddDamageResistancePhysical>();
+            comp ??= FeatureRefs.DamageReduction.Reference.Get().GetComponent<AddDamageResistancePhysical>();
+            if (comp == null)
+                return configurator.AddDamageResistancePhysical(value: value);
+            AddDamageResistancePhysical component = TTTHelpers.CreateCopy(comp);
             component.Value = value ?? component.Value;
             return configurator.AddComponent(component);
         }

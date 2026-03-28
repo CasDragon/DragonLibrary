@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem;
@@ -11,6 +12,9 @@ namespace DragonLibrary.NewComponents
 {
     [AllowedOn(typeof(BlueprintFeature), false)]
     [AllowedOn(typeof(BlueprintBuff), false)]
+    [AllowedOn(typeof(BlueprintUnitFact), false)]
+    [AllowedOn(typeof(BlueprintUnit), false)]
+    [AllowMultipleComponents]
     [TypeId("0d5b6fdf-0ee1-43f9-a1f2-a1361a8c08ca")]
     [Serializable]
     public class AddSneakAttackRollTrigger : EntityFactComponentDelegate, IInitiatorRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>, ISubscriber, IInitiatorRulebookSubscriber
