@@ -34,24 +34,18 @@ namespace DragonLibrary.NewComponents
 
         public override void OnTurnOn()
         {
-            Main.Log.Log("test 1");
             if (!base.Owner.HasFact(Feature) && !base.Owner.HasFact(ParametrizedFeature))
             {
-                Main.Log.Log("null in first");
                 return;
             }
             ModifiableValue stat = base.Owner.Stats.GetStat(this.Stat);
             if (stat == null)
             {
-                Main.Log.Log("null in stat");
                 return;
             }
             int num = this.Value * base.Fact.GetRank();
-            Main.Log.Log($"num = {num}");
             int mythicvalue = base.Owner.Progression.MythicLevel;
-            Main.Log.Log($"mr = {mythicvalue}");
             int finalvalue = 1 + (num * mythicvalue);
-            Main.Log.Log($"final = {finalvalue}");
             if (ScalingType == "Half" && (!base.Owner.HasFact(MythicFeature) && !base.Owner.HasFact(MythicParametrizedFeature)))
                 finalvalue = ((int)(finalvalue * 0.5));
             stat.AddModifierUnique(finalvalue, base.Runtime, this.Descriptor);
