@@ -13,7 +13,7 @@ namespace DragonLibrary.BPCoreExtensions
 {
     public static class AbilityBuilderEx
     {
-        public static TBuilder AddSneakDiceSizeIncrease<T1, TBuilder>(
+        public static TBuilder AddChargingThrow<T1, TBuilder>(
             this BaseAbilityConfigurator<T1, TBuilder> configurator)
             where T1 : BlueprintAbility
             where TBuilder : BaseAbilityConfigurator <T1, TBuilder>
