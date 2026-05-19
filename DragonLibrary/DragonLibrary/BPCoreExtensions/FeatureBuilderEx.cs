@@ -17,6 +17,13 @@ namespace DragonLibrary.BPCoreExtensions
 {
     public static class FeatureBuilderEx
     {
+        public static TBuilder AddSneakDiceSizeIncrease<T1, TBuilder>(
+            this BaseUnitFactConfigurator<T1, TBuilder> configurator)
+            where T1 : BlueprintUnitFact
+            where TBuilder : BaseUnitFactConfigurator<T1, TBuilder>
+        {
+            return configurator.AddComponent(new SneakDiceSizeIncrease());
+        }
         public static TBuilder AddBonusToAbilityDC<T1, TBuilder>(
             this BaseUnitFactConfigurator<T1, TBuilder> configurator,
             BlueprintAbility ability,

@@ -5,7 +5,7 @@
 		<TargetFramework>net481</TargetFramework>
 		<AssemblyName>DragonLibrary</AssemblyName>
 		<Description>DragonLibrary</Description>
-		<Version>1.0.6</Version>
+		<Version>1.1.0</Version>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>latest</LangVersion>
 		<RootNamespace>DragonLibrary</RootNamespace>
@@ -15,6 +15,7 @@
 		<WrathData>$(LocalAppData)Low\Owlcat Games\Pathfinder Wrath Of The Righteous</WrathData>
 	</PropertyGroup>
 	<ItemGroup>
+		<Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\AstarPathfindingProject.dll" />
 		<Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\Unity*.dll" />
 		<Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\Core*.dll" />
 		<Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\Owlcat*.dll" Publicize="true" />
