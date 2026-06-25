@@ -32,16 +32,7 @@
 	<ItemGroup>
 		<None Include="Info.json" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
-	<Target Name="ILRepack" AfterTargets="Build">
-		<ItemGroup>
-			<InputAssemblies Include="BlueprintCore.dll" />
-			<InputAssemblies Include="$(AssemblyName).dll" />
-			<OutputAssembly Include="$(AssemblyName).dll" />
-		</ItemGroup>
-		<Message Text="Merging: @(InputAssemblies) into @(OutputAssembly)" Importance="High" />
-		<ILRepack OutputType="Dll" MainAssembly="@(OutputAssembly)" OutputAssembly="@(OutputAssembly)" InputAssemblies="@(InputAssemblies)" WorkingDirectory="$(OutputPath)" />
-	</Target>
-	<Target Name="Deploy" AfterTargets="ILRepack">
+	<Target Name="Deploy" AfterTargets="Build">
 		<ItemGroup>
 			<Files Include="$(TargetDir)\**\*.*" />
 			<Files Remove="$(TargetDir)\**\*.dll" />
@@ -50,6 +41,7 @@
 			<Files Remove="$(TargetDir)\**\UnityModManager.xml" />
 			<Files Include="$(TargetDir)\**\$(AssemblyName).dll" />
 			<Files Include="$(TargetDir)\**\$(AssemblyName).pdb" />
+			<Files Include="$(TargetDir)\**\BlueprintCore.dll" />
 			<ToDelete Include="$(TargetDir)\**\*.*" />
 			<ToDelete Remove="@(Files)" />
 		</ItemGroup>
