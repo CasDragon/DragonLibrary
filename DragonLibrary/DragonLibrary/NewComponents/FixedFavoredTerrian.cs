@@ -23,6 +23,7 @@ public class FixedFavoredTerrain : FavoredTerrain, IAreaLoadingStagesHandler
 
 	public void OnAreaLoadingComplete()
 	{
+		this.DeactivateModifier();
 		this.UpdateModifiers();
 	}
 }

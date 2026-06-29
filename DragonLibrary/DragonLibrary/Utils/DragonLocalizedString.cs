@@ -1,39 +1,21 @@
 ﻿using System.Reflection;
+using Kingmaker.Blueprints.JsonSystem;
 using Newtonsoft.Json;
 using UnityModManagerNet;
 
 namespace DragonLibrary.Utils
 {
     [AttributeUsage(AttributeTargets.Field)]
-    public class DragonLocalizedString : Attribute
+    public class DragonLocalizedString(string key, string eNvalue, bool template = false, string cNvalue = "")
+        : Attribute
     {
-        private readonly string key;
-        private readonly string ENvalue;
-        private readonly string CHvalue;
-        private readonly bool template;
-        public DragonLocalizedString(string key, string ENvalue, bool template = false, string CNvalue = "")
-        {
-            this.key = key;
-            this.ENvalue = ENvalue;
-            this.template = template;
-            this.CHvalue = CNvalue;
-        }
-        public string Key
-        {
-            get { return this.key; }
-        }
-        public string English
-        {
-            get { return this.ENvalue; }
-        }
-        public string Chinese
-        {
-            get { return this.CHvalue; }
-        }
-        public bool Template
-        {
-            get { return this.template; }
-        }
+        public string Key => key;
+
+        public string English => eNvalue;
+
+        public string Chinese => cNvalue;
+
+        public bool Template => template;
     }
 
 
@@ -44,21 +26,28 @@ namespace DragonLibrary.Utils
 
         public static void CreateLocalizationFile(string path, UnityModManager.ModEntry entry)
         {
-            //Main.Log.Log("Creating localization file! DEBUG");
             var fields = entry.Assembly.GetTypes()
                 .SelectMany(t => t.GetFields(BindingFlags.NonPublic | BindingFlags.Static))
                 .Where(t => t.GetCustomAttribute<DragonLocalizedString>() is not null);
             List<LocString> locales = [];
+            if (File.Exists(Path.Combine(path, "LocalizedStrings.json")))
+            {
+                var x = File.ReadAllText(Path.Combine(path, "LocalizedStrings.json"));
+                locales = JsonConvert.DeserializeObject<List<LocString>>(x);
+            }
             foreach (var field in fields)
             {
                 var str = field.GetCustomAttribute<DragonLocalizedString>();
-                locales.Add(new LocString()
+                if (locales.All(l => l.Key != str.Key))
                 {
-                    Key = str.Key,
-                    ProcessTemplates = str.Template,
-                    enGB = str.English,
-                    zhCN = str.Chinese
-                });
+                    locales.Add(new LocString()
+                    {
+                        Key = str.Key,
+                        ProcessTemplates = str.Template,
+                        enGB = str.English,
+                        zhCN = str.Chinese
+                    });
+                }
             }
             string json = JsonConvert.SerializeObject(locales.ToArray(), Formatting.Indented);
             File.WriteAllText(path: Path.Combine(path, "LocalizedStrings.json"), json);
@@ -66,10 +55,10 @@ namespace DragonLibrary.Utils
 
         public static string GetModFolderPath(UnityModManager.ModEntry entry)
         {
-            return new FileInfo(entry.Assembly.Location).Directory.FullName;
+            return new FileInfo(entry.Assembly.Location).Directory!.FullName;
         }
 
-        internal class LocString
+        private class LocString
         {
             public string Key;
             public bool ProcessTemplates;
