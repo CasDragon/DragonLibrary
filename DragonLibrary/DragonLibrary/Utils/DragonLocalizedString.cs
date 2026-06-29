@@ -34,6 +34,11 @@ namespace DragonLibrary.Utils
             {
                 var x = File.ReadAllText(Path.Combine(path, "LocalizedStrings.json"));
                 locales = JsonConvert.DeserializeObject<List<LocString>>(x);
+                /*Main.Log.Log("printing keys");
+                foreach (var str in locales)
+                {
+                    Main.Log.Log($"{str.Key} - {str.enGB}");
+                }*/
             }
             foreach (var field in fields)
             {
