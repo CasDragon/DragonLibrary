@@ -9,14 +9,24 @@ namespace DragonLibrary
 {
     public static class Main
     {
-        internal static Harmony HarmonyInstance;
+        private static Harmony HarmonyInstance;
         internal static UnityModManager.ModEntry.ModLogger Log;
         internal static UnityModManager.ModEntry entry;
 
         public static bool Load(UnityModManager.ModEntry modEntry)
-        {
+        {        
+            AppDomain.CurrentDomain.AssemblyResolve += (sender, args) =>
+            {
+                var simpleName = new AssemblyName(args.Name).Name;
+                var candidate = Path.Combine(LocalizedStringHelper.GetModFolderPath(modEntry), simpleName + ".dll");
+
+                if (File.Exists(candidate))
+                    return Assembly.LoadFrom(candidate);
+
+                return null;
+            };
+            
             Log = modEntry.Logger;
-            modEntry.OnGUI = OnGUI;
             entry = modEntry;
             HarmonyInstance = new Harmony(modEntry.Info.Id);
             try
@@ -29,11 +39,6 @@ namespace DragonLibrary
                 throw;
             }
             return true;
-        }
-
-        public static void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-
         }
 
         [HarmonyPatch(typeof(BlueprintsCache))]
