@@ -19,6 +19,7 @@ namespace DragonLibrary.Utils
         {
             BlueprintAbilityReference spellReference = spell.ToReference<BlueprintAbilityReference>();
             spellList.SpellsByLevel[spellLevel].m_Spells = spellList.SpellsByLevel[spellLevel].m_Spells.Except([spellReference]).ToList();
+            spellList.SpellsByLevel[spellLevel].m_SpellsProxy?.Remove(spell);
         }
     }
 }
