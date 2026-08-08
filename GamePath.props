@@ -1,5 +1,5 @@
 ﻿<Project xmlns='http://schemas.microsoft.com/developer/msbuild/2003'>
 	<PropertyGroup>
-		<WrathInstallDir>D:/Games/steamapps/common/Pathfinder Second Adventure</WrathInstallDir>
+		<WrathInstallDir>/run/media/red/GameDrive/Games/steamapps/common/Pathfinder Second Adventure/</WrathInstallDir>
 	</PropertyGroup>
 </Project>

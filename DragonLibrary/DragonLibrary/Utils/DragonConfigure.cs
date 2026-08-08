@@ -37,7 +37,17 @@ namespace DragonLibrary.Utils
             {
                 var methodnums = methods.Where(m => m.GetCustomAttribute<DragonConfigure>().PatchPriority == priority);
                 foreach (var method in methodnums)
-                    method.Invoke(null, []);
+                {
+                    try
+                    {
+                        method.Invoke(null, []);
+                    }
+                    catch (TargetInvocationException e)
+                    {
+                        Main.Log.Log("Error invoking method - " + method.Name);
+                        Main.Log.Log(e.ToString());
+                    }
+                }
             }
         }
 

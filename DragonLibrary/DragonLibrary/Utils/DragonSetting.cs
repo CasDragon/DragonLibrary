@@ -22,7 +22,9 @@ namespace DragonLibrary.Utils
         NewClasses,
         NewSpells,
         NewAbilities,
-        NewFeatures
+        NewFeatures,
+        KabFixes,
+        EldritchScion
     }
 
     [AttributeUsage(AttributeTargets.Method)]
