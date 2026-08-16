@@ -42,11 +42,23 @@ namespace DragonLibrary.BPCoreExtensions
 
         public static ConditionsBuilder IsFaction(
             this ConditionsBuilder builder,
-            BlueprintFaction faction)
+            BlueprintFaction faction,
+            bool not=false)
         {
             var element = new ConditionIsFaction()
             {
-                Faction = faction
+                Faction = faction,
+                Not = not
+            };
+            return builder.Add(element);
+        }
+        public static ConditionsBuilder IsSummond(
+            this ConditionsBuilder builder,
+            bool not=false)
+        {
+            var element = new ConditionIsSummon()
+            {
+                Not = not
             };
             return builder.Add(element);
         }

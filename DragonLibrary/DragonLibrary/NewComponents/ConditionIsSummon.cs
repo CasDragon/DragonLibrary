@@ -1,5 +1,4 @@
 using Kingmaker;
-using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
@@ -7,32 +6,30 @@ using UnityEngine;
 
 namespace DragonLibrary.NewComponents;
 
-[TypeId("B3B6BE0F-FD36-450D-A0B4-2D97EAAC46B1")]
+[TypeId("680E4821-99FB-43CD-A9EF-7981DF8B1613")]
 [Serializable]
-public class ConditionIsFaction: ContextCondition
+public class ConditionIsSummon: ContextCondition
 {
+    [SerializeField] 
+    public new bool Not;
+
+
     public override string GetConditionCaption()
     {
-        return "Is Faction";
+        return "Is summon";
     }
 
     public override bool CheckCondition()
-    {
+    {        
         UnitEntityData unit = Target.Unit;
         if (unit == null)
         {
             return false;
         }
 
-        bool same = unit.Faction == Faction;
+        bool summ = unit.Buffs.HasFact(Game.Instance.BlueprintRoot.SystemMechanics.SummonedUnitBuff);
         if (Not)
-            return !same;
-        return same;
+            summ = !summ;
+        return summ;
     }
-
-    [SerializeField]
-    public BlueprintFaction Faction;
-
-    [SerializeField] 
-    public new bool Not;
 }
