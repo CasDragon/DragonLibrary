@@ -30,7 +30,7 @@ namespace DragonLibrary.NewComponents
         {
             if (evt.IsSneakAttack && evt.IsHit)
             {
-                base.Fact.RunActionInContext(Action, evt.Target);
+                Fact.RunActionInContext(Action, evt.Target);
             }
         }
     }

@@ -21,11 +21,10 @@ namespace DragonLibrary.NewComponents
         public bool CheckWeapons()
         {
             UnitEntityData unitEntityData = (this.CheckOnCaster ? base.Context.MaybeCaster : base.Target.Unit);
-            var body = unitEntityData.Body;
+            var body = unitEntityData!.Body;
             if (isShield)
                 return body.PrimaryHand.MaybeShield?.Blueprint == weapon || body.SecondaryHand.MaybeShield?.Blueprint == weapon;
-            else
-                return body.PrimaryHand.MaybeWeapon?.Blueprint == weapon || body.SecondaryHand.MaybeWeapon?.Blueprint == weapon;
+            return body.PrimaryHand.MaybeWeapon?.Blueprint == weapon || body.SecondaryHand.MaybeWeapon?.Blueprint == weapon;
         }
     }
 }

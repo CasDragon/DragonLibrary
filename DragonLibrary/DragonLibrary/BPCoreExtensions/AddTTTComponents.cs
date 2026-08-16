@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BlueprintCore.Blueprints.Configurators.Facts;
+﻿using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.References;
 using DragonLibrary.Utils;
 using Kingmaker.Blueprints;

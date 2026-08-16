@@ -20,27 +20,18 @@ namespace DragonLibrary.NewComponents
         {
             get
             {
-                BlueprintBuffReference buff = this.m_Buff;
-                if (buff == null)
-                {
-                    return null;
-                }
-                return buff.Get();
+                BlueprintBuffReference buff = m_Buff;
+                return buff?.Get();
             }
-            set
-            {
-                m_Buff = value.ToReference<BlueprintBuffReference>(); ;
-            }
+            set => m_Buff = value.ToReference<BlueprintBuffReference>();
         }
         public void OnEventAboutToTrigger(RuleCalculateAbilityParams evt)
         {
-            if (evt.Spell == this.Buff)
-            {
-                var context = evt.Reason.Context;
-                int bonus = context.MaybeCaster?.Stats.GetStat(Stat)?.ModifiedValue ?? 0;
-                if (bonus > 0)
-                    evt.AddBonusDC(bonus, Descriptor);
-            }
+            if (evt.Spell != Buff) return;
+            var context = evt.Reason.Context;
+            int bonus = context!.MaybeCaster?.Stats.GetStat(Stat)?.ModifiedValue ?? 0;
+            if (bonus > 0)
+                evt.AddBonusDC(bonus, Descriptor);
         }
 
         public void OnEventDidTrigger(RuleCalculateAbilityParams evt)

@@ -1,18 +1,9 @@
 ﻿using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.FactLogic;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DragonLibrary.NewComponents
 {
@@ -34,26 +25,26 @@ namespace DragonLibrary.NewComponents
 
         public override void OnTurnOn()
         {
-            if (!base.Owner.HasFact(Feature) && !base.Owner.HasFact(ParametrizedFeature))
+            if (!Owner.HasFact(Feature) && !Owner.HasFact(ParametrizedFeature))
             {
                 return;
             }
-            ModifiableValue stat = base.Owner.Stats.GetStat(this.Stat);
+            ModifiableValue stat = Owner.Stats.GetStat(this.Stat);
             if (stat == null)
             {
                 return;
             }
-            int num = this.Value * base.Fact.GetRank();
-            int mythicvalue = base.Owner.Progression.MythicLevel;
+            int num = Value * Fact.GetRank();
+            int mythicvalue = Owner.Progression.MythicLevel;
             int finalvalue = 1 + (num * mythicvalue);
-            if (ScalingType == "Half" && (!base.Owner.HasFact(MythicFeature) && !base.Owner.HasFact(MythicParametrizedFeature)))
+            if (ScalingType == "Half" && (!Owner.HasFact(MythicFeature) && !Owner.HasFact(MythicParametrizedFeature)))
                 finalvalue = ((int)(finalvalue * 0.5));
-            stat.AddModifierUnique(finalvalue, base.Runtime, this.Descriptor);
+            stat.AddModifierUnique(finalvalue, Runtime, Descriptor);
         }
 
         public override void OnTurnOff()
         {
-            base.Owner.Stats.GetStat(this.Stat).RemoveModifiersFrom(base.Runtime);
+            Owner.Stats.GetStat(Stat).RemoveModifiersFrom(Runtime);
         }
         public class ComponentData
         {

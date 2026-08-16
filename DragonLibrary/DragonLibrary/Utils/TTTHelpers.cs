@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using System.Reflection;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.EntitySystem.Stats;
@@ -271,7 +266,6 @@ namespace DragonLibrary.Utils
                 }
                 public override int GetHashCode(object obj)
                 {
-                    if (obj == null) return 0;
                     if (obj is WeakResourceLink wrl)
                     {
                         if (wrl.AssetId == null)
@@ -331,11 +325,9 @@ namespace DragonLibrary.Utils
             }
             private static void RecursiveCopyBaseTypePrivateFields(object originalObject, IDictionary<object, object> visited, object cloneObject, Type typeToReflect)
             {
-                if (typeToReflect.BaseType != null)
-                {
-                    RecursiveCopyBaseTypePrivateFields(originalObject, visited, cloneObject, typeToReflect.BaseType);
-                    CopyFields(originalObject, visited, cloneObject, typeToReflect.BaseType, BindingFlags.Instance | BindingFlags.NonPublic, info => info.IsPrivate);
-                }
+                if (typeToReflect.BaseType == null) return;
+                RecursiveCopyBaseTypePrivateFields(originalObject, visited, cloneObject, typeToReflect.BaseType);
+                CopyFields(originalObject, visited, cloneObject, typeToReflect.BaseType, BindingFlags.Instance | BindingFlags.NonPublic, info => info.IsPrivate);
             }
             private static void CopyFields(object originalObject, IDictionary<object, object> visited, object cloneObject, Type typeToReflect, BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.FlattenHierarchy, Func<FieldInfo, bool> filter = null)
             {

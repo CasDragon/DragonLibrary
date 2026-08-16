@@ -31,14 +31,12 @@ namespace DragonLibrary.NewComponents
 
         public void HandleGetSlotsCount(Spellbook spellbook, int spellLevel, ref int __result)
         {
-            if (spellbook.Blueprint.IsArcanist)
+            if (!spellbook.Blueprint.IsArcanist) return;
+            foreach (var num in Levels)
             {
-                foreach (int num in this.Levels)
+                if (spellLevel == num)
                 {
-                    if (spellLevel == num)
-                    {
-                        __result += Amount;
-                    }
+                    __result += Amount;
                 }
             }
         }

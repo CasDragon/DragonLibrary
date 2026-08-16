@@ -1,13 +1,6 @@
-﻿using BlueprintCore.Blueprints.Configurators.Facts;
-using BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities;
+﻿using BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities;
 using DragonLibrary.NewComponents;
-using Kingmaker.Blueprints.Facts;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DragonLibrary.BPCoreExtensions
 {

@@ -42,14 +42,13 @@ namespace DragonLibrary.Utils
             this.description = description;
             this.enabledByDefault = enabledByDefault;
         }
-        public SettingCategories SettingCategory
-        { get { return this.category; } }
-        public string SettingName
-        { get { return this.name; } }
-        public string SettingDescription
-        { get { return this.description; } }
-        public bool EnabledByDefault
-        { get { return this.enabledByDefault; } }
+        public SettingCategories SettingCategory => category;
+
+        public string SettingName => name;
+
+        public string SettingDescription => description;
+
+        public bool EnabledByDefault => enabledByDefault;
     }
     public class SettingsAction
     {

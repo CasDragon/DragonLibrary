@@ -24,6 +24,18 @@ namespace DragonLibrary.BPCoreExtensions
         {
             return configurator.AddComponent(new SneakDiceSizeIncrease());
         }
+        public static TBuilder AddStatBonusToSpellDamage<T1, TBuilder>(
+            this BaseUnitFactConfigurator<T1, TBuilder> configurator,
+            ContextValue value)
+            where T1 : BlueprintUnitFact
+            where TBuilder : BaseUnitFactConfigurator<T1, TBuilder>
+        {
+            StatBonusToSpellDamage element = new()
+            {
+                Value = value ?? new ContextValue(),
+            };
+            return configurator.AddComponent(element);
+        }
         public static TBuilder AddBonusToAbilityDC<T1, TBuilder>(
             this BaseUnitFactConfigurator<T1, TBuilder> configurator,
             BlueprintAbility ability,

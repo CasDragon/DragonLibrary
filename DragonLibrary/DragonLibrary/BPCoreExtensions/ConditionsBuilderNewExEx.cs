@@ -39,5 +39,16 @@ namespace DragonLibrary.BPCoreExtensions
             element.Slot = slot ?? element.Slot;
             return builder.Add(element);
         }
+
+        public static ConditionsBuilder IsFaction(
+            this ConditionsBuilder builder,
+            BlueprintFaction faction)
+        {
+            var element = new ConditionIsFaction()
+            {
+                Faction = faction
+            };
+            return builder.Add(element);
+        }
     }
 }

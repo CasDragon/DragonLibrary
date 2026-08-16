@@ -13,17 +13,10 @@ namespace DragonLibrary.Utils
     }
 
     [AttributeUsage(AttributeTargets.Method)]
-    public class DragonConfigure : Attribute
+    public class DragonConfigure(ConfigurePriority priority = ConfigurePriority.Normal) : Attribute
     {
-        private ConfigurePriority priority = ConfigurePriority.Normal;
-        public DragonConfigure(ConfigurePriority priority = ConfigurePriority.Normal)
-        {
-            this.priority = priority;
-        }
-        public ConfigurePriority PatchPriority
-        {
-            get { return this.priority; }
-        }
+        private ConfigurePriority priority = priority;
+        public ConfigurePriority PatchPriority => priority;
     }
 
     public class DragonConfigureAction
@@ -33,9 +26,10 @@ namespace DragonLibrary.Utils
             var methods = entry.Assembly.GetTypes()
                 .SelectMany(t => t.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static))
                 .Where(m => m.IsStatic && m.GetCustomAttribute<DragonConfigure>() is not null);
+            var methodInfos = methods.ToList();
             foreach (ConfigurePriority priority in Enum.GetValues(typeof(ConfigurePriority)))
             {
-                var methodnums = methods.Where(m => m.GetCustomAttribute<DragonConfigure>().PatchPriority == priority);
+                var methodnums = methodInfos.Where(m => m.GetCustomAttribute<DragonConfigure>().PatchPriority == priority);
                 foreach (var method in methodnums)
                 {
                     try

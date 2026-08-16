@@ -1,5 +1,4 @@
-﻿using System;
-using Kingmaker.Blueprints.Items.Equipment;
+﻿using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Modding;
 using UnityModManagerNet;
 using WrathScalingItemDCs.ScalingDC;
@@ -37,24 +36,22 @@ namespace DragonLibrary.Utils
         public static bool IsModEnabled(string modName, string modtype = "umm")
         {
             Main.Log.Log($"Checking for {modName}");
-            bool found = false;
-            if (modtype == "umm")
-                found = UnityModManager.modEntries.Where(mod => mod.Info.Id.Equals(modName) && mod.Enabled && !mod.ErrorOnLoading).Any();
-            if (modtype == "owlcat")
-                found = OwlcatModificationsManager.Instance.AppliedModifications.Any(x => x.Manifest.UniqueName == modName);
+            bool found = modtype switch
+            {
+                "umm" => UnityModManager.modEntries.Any(mod =>
+                    mod.Info.Id.Equals(modName) && mod.Enabled && !mod.ErrorOnLoading),
+                "owlcat" => OwlcatModificationsManager.Instance.AppliedModifications.Any(x =>
+                    x.Manifest.UniqueName == modName),
+                _ => false
+            };
             LogModState(found, modName);
             return found;
         }
         public static void LogModState(bool mod, string modname)
         {
-            if (mod)
-            {
-                Main.Log.Log($"{modname} is found and enabled");
-            }
-            else
-            {
-                Main.Log.Log($"{modname} wasn't found, disabling compatiblity patches");
-            }
+            Main.Log.Log(mod
+                ? $"{modname} is found and enabled"
+                : $"{modname} wasn't found, disabling compatibility patches");
         }
         public static void AddEquipmentToScalingDC(BlueprintItemEquipment equipment)
         {

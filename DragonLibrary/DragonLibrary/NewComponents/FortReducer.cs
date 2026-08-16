@@ -5,13 +5,6 @@ using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem;
 using Kingmaker.RuleSystem.Rules;
-using Kingmaker.Utility;
-using Owlcat.Runtime.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DragonLibrary.NewComponents
 {
@@ -38,10 +31,8 @@ namespace DragonLibrary.NewComponents
             IEnumerable<EntityFact> fact = __instance.Initiator.Facts.List.Where(f => f.Components.OfType<FortReducer>().Any());
             foreach (EntityFact x in fact)
             {
-                if (fact == null)
-                    continue;
                 FortReducer component = x.GetComponent<FortReducer>();
-                int y = component.Value;
+                int y = component!.Value;
                 int z = x.GetRank();
                 int yolo = __instance.FortificationChance - (y * z);
                 __instance.FortificationChance = yolo >= 0 ? yolo : 0;

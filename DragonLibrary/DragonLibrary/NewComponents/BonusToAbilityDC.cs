@@ -27,20 +27,15 @@ namespace DragonLibrary.NewComponents
                 }
                 return ability.Get();
             }
-            set
-            {
-                m_Ability = value.ToReference<BlueprintAbilityReference>(); ;
-            }
+            set => m_Ability = value.ToReference<BlueprintAbilityReference>();
         }
         public void OnEventAboutToTrigger(RuleCalculateAbilityParams evt)
         {
-            if (evt.Spell == this.Ability)
-            {
-                var context = evt.Reason.Context;
-                int bonus = context.MaybeCaster?.Stats.GetStat(Stat)?.ModifiedValue ?? 0;
-                if (bonus > 0)
-                    evt.AddBonusDC(bonus, Descriptor);
-            }
+            if (evt.Spell != Ability) return;
+            var context = evt.Reason.Context;
+            int bonus = context!.MaybeCaster?.Stats.GetStat(Stat)?.ModifiedValue ?? 0;
+            if (bonus > 0)
+                evt.AddBonusDC(bonus, Descriptor);
         }
 
         public void OnEventDidTrigger(RuleCalculateAbilityParams evt)

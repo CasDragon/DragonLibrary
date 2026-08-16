@@ -1,15 +1,8 @@
 ﻿using BlueprintCore.Blueprints.Configurators.Classes.Selection;
-using BlueprintCore.Blueprints.Configurators.Facts;
 using DragonLibrary.NewComponents;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DragonLibrary.BPCoreExtensions
 {

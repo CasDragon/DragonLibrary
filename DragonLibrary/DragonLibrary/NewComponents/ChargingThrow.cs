@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using DragonLibrary;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Root;
-using Kingmaker.Controllers.Clicks.Handlers;
-using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Items;
 using Kingmaker.Localization;
@@ -22,13 +16,14 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Commands;
+using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.Utility;
 using Kingmaker.View;
-using Owlcat.Runtime.Core.Utils;
+using Kingmaker.Visual.Animation.Kingmaker.Actions;
 using TurnBased.Controllers;
 using UnityEngine;
-using Kingmaker.Visual.Animation.Kingmaker.Actions;
-using Kingmaker.UnitLogic.Commands.Base;
+
+namespace DragonLibrary.NewComponents;
 
 [Serializable]
 [AllowedOn(typeof(BlueprintAbility), false)]
@@ -37,12 +32,12 @@ public class ChargingThrow : AbilityCustomCharge, IAbilityTargetRestriction, IAb
 {
     private static readonly LocalizedString FailReasonWeapon = new LocalizedString
     {
-        m_Key = "Chargin Hurler Fail Wrong Weapon"
+        m_Key = "Charging Hurler Fail Wrong Weapon"
     };
 
     private static readonly LocalizedString FailReasonMount = new LocalizedString
     {
-        m_Key = "Chargin Hurler Fail Must Run"
+        m_Key = "Charging Hurler Fail Must Run"
     };
 
     public override void Cleanup(AbilityExecutionContext context)
@@ -91,7 +86,7 @@ public class ChargingThrow : AbilityCustomCharge, IAbilityTargetRestriction, IAb
         caster.Descriptor.State.IsCharging = false;
     }
 
-    private static new IEnumerator<AbilityDeliveryTarget> RuntimeRoutine(UnitEntityData caster, UnitEntityData target, UnitAttack attack, Vector3 endPoint)
+    private new static IEnumerator<AbilityDeliveryTarget> RuntimeRoutine(UnitEntityData caster, UnitEntityData target, UnitAttack attack, Vector3 endPoint)
     {
         float maxDistance = GetMaxRangeMeters(caster) - 30f;
         float passedDistance = 0f;
@@ -139,7 +134,7 @@ public class ChargingThrow : AbilityCustomCharge, IAbilityTargetRestriction, IAb
         return AbilityCustomCharge.GetMinRangeMeters(caster, null);
     }
 
-    public static new float GetMinRangeMeters(UnitEntityData caster, [CanBeNull] UnitEntityData target)
+    public new static float GetMinRangeMeters(UnitEntityData caster, [CanBeNull] UnitEntityData target)
     {
         float num = target?.View.Corpulence ?? 0.5f;
         if (Game.Instance.Player.IsTurnBasedModeOn())
@@ -193,7 +188,7 @@ public class ChargingThrow : AbilityCustomCharge, IAbilityTargetRestriction, IAb
         return true;
     }
 
-    public static new float GetMaxRangeMeters(UnitEntityData caster)
+    public new static float GetMaxRangeMeters(UnitEntityData caster)
     {
         var movementLimit = caster.IsSurprising() ? 1f : 2f;
         return caster.CombatSpeedMps * 3f * movementLimit + Convert.ToSingle(caster.GetFirstWeapon().AttackRange.Meters);

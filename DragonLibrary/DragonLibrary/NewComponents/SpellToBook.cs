@@ -35,51 +35,40 @@ namespace DragonLibrary.NewComponents
         {
             foreach (ClassData classData in this.Owner.Progression.Classes)
             {
-                if (classData.Spellbook != null && !classData.Spellbook.IsMythic)
+                if (classData.Spellbook is not { IsMythic: false }) continue;
+                Spellbook spellbook = this.Owner.Descriptor.GetSpellbook(classData.Spellbook);
+                if (spellbook == null) continue;
+                var sblvl = spellbook.GetMaxSpellLevel();
+                if (sblvl < spelllevel)
                 {
-                    Spellbook spellbook = this.Owner.Descriptor.GetSpellbook(classData.Spellbook);
-                    if (spellbook != null)
-                    {
-                        var sblvl = spellbook.GetMaxSpellLevel();
-                        if (sblvl < spelllevel)
-                        {
-                            return;
-                        }
-                        else
-                        {
-                            AddKnownTemporary(spellbook, spelllevel, spell);
-                        }
-                    }
+                    return;
                 }
+                AddKnownTemporary(spellbook, spelllevel, spell);
             }
         }
         private void RemoveFromKnown()
         {
             foreach (ClassData classData in this.Owner.Progression.Classes)
             {
-                if (classData.Spellbook != null && !classData.Spellbook.IsMythic)
+                if (classData.Spellbook is { IsMythic: false })
                 {
                     Spellbook spellbook = this.Owner.Descriptor.GetSpellbook(classData.Spellbook);
-                    if (spellbook != null)
-                    {
-                        AbilityData abilityData = spellbook.SureKnownSpells(spelllevel).FirstItem((AbilityData s) => s.Blueprint == spell.GetBlueprint());
-                        spellbook.RemoveTemporarySpell(abilityData);
-                    }
+                    if (spellbook == null) continue;
+                    AbilityData abilityData = spellbook.SureKnownSpells(spelllevel).FirstItem((AbilityData s) => s.Blueprint == spell.GetBlueprint());
+                    spellbook.RemoveTemporarySpell(abilityData);
                 }
             }
         }
         private static AbilityData AddKnownTemporary(Spellbook sb, int spellLevel, BlueprintAbility blueprint)
         {
             AbilityData abilityData = sb.SureKnownSpells(spellLevel).FirstItem((AbilityData s) => s.Blueprint == blueprint);
-            if (abilityData == null)
+            if (abilityData != null) return abilityData;
+            abilityData = new AbilityData(blueprint, sb, spellLevel)
             {
-                abilityData = new AbilityData(blueprint, sb, spellLevel)
-                {
-                    IsTemporary = true
-                };
-                sb.SureKnownSpells(spellLevel).Add(abilityData);
-                sb.AddKnownSpellLevel(blueprint, spellLevel);
-            }
+                IsTemporary = true
+            };
+            sb.SureKnownSpells(spellLevel).Add(abilityData);
+            sb.AddKnownSpellLevel(blueprint, spellLevel);
 
             return abilityData;
         }
