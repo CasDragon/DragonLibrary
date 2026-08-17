@@ -21,5 +21,11 @@ namespace DragonLibrary.Utils
             spellList.SpellsByLevel[spellLevel].m_Spells = spellList.SpellsByLevel[spellLevel].m_Spells.Except([spellReference]).ToList();
             spellList.SpellsByLevel[spellLevel].m_SpellsProxy?.Remove(spell);
         }
+        public static T MakeRef<T>(string guid) 
+            where T : BlueprintReferenceBase?, new()
+        {
+            var x = ResourcesLibrary.TryGetBlueprint(new BlueprintGuid(new Guid(guid)));
+            return x.ToReference<T>();
+        }
     }
 }
