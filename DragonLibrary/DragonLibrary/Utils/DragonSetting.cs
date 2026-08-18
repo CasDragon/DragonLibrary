@@ -23,7 +23,7 @@ namespace DragonLibrary.Utils
     }
 
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public abstract class DragonSetting : Attribute
+    public class DragonSetting : Attribute
     {
         private readonly SettingCategories category;
         private readonly string name;
@@ -62,6 +62,7 @@ namespace DragonLibrary.Utils
     public class SettingsAction
     {
         private static string RootKey = "";
+        
 
         public static void InitializeSettings(string rootKey, string modName, UnityModManager.ModEntry entry)
         {
@@ -106,6 +107,11 @@ namespace DragonLibrary.Utils
                 Main.Log.Error(ex.ToString());
                 return default(T);
             }
+        }
+
+        public static void SetSettingToggle(string key, bool value)
+        {
+            ModMenu.ModMenu.SetSetting(GetKey(key), value);
         }
         private static LocalizedString CreateString(string partialkey, string text)
         {
