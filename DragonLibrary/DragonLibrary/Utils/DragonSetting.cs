@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using System.Reflection;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Kingmaker.Localization;
 using ModMenu.Settings;
 using UnityModManagerNet;
@@ -27,20 +22,32 @@ namespace DragonLibrary.Utils
         EldritchScion
     }
 
-    [AttributeUsage(AttributeTargets.Method)]
-    public class DragonSetting : Attribute
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
+    public abstract class DragonSetting : Attribute
     {
         private readonly SettingCategories category;
         private readonly string name;
         private readonly string description;
         private readonly bool enabledByDefault;
+        private readonly Action<bool> onToggle;
 
         public DragonSetting(SettingCategories category, string name, string description, bool enabledByDefault = true)
+            : this(category, name, description, null, null, enabledByDefault)
+        { }
+        public DragonSetting(SettingCategories category, string name, string description, Type type, string methodName, bool enabledByDefault = true)
         {
             this.category = category;
             this.name = name;
             this.description = description;
             this.enabledByDefault = enabledByDefault;
+            if (methodName is not null && type is not null)
+            {
+                this.onToggle = Delegate.CreateDelegate(typeof(Action<bool>), type.GetMethod(methodName)!) as Action<bool>;
+            }
+            else
+            {
+                this.onToggle = null;
+            }
         }
         public SettingCategories SettingCategory => category;
 
@@ -49,6 +56,8 @@ namespace DragonLibrary.Utils
         public string SettingDescription => description;
 
         public bool EnabledByDefault => enabledByDefault;
+        
+        public Action<bool> OnToggle => onToggle;
     }
     public class SettingsAction
     {
@@ -76,8 +85,13 @@ namespace DragonLibrary.Utils
                     categoryName = currentCategory.ToString();
                     builder.AddAnotherSettingsGroup(GetKey(categoryName), CreateString(GetKey(categoryName), GetTitle(categoryName)));
                 }
-                builder.AddToggle(
-                    Toggle.New(GetKey(setting.SettingName), setting.EnabledByDefault, CreateString(GetKey(setting.SettingName), setting.SettingDescription)));
+                if (setting.OnToggle == null)
+                    builder.AddToggle(
+                        Toggle.New(GetKey(setting.SettingName), setting.EnabledByDefault, CreateString(GetKey(setting.SettingName), setting.SettingDescription)));
+                else
+                    builder.AddToggle(
+                        Toggle.New(GetKey(setting.SettingName), setting.EnabledByDefault, CreateString(GetKey(setting.SettingName), setting.SettingDescription))
+                            .OnValueChanged(setting.OnToggle));
             }
             ModMenu.ModMenu.AddSettings(builder);
         }
