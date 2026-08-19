@@ -3,7 +3,7 @@
   "DisplayName": "DragonLibrary",
   "Author": "CascadingDragon",
   "Version": "1.2.2",
-  "ManagerVersion": "0.32.4",
+  "ManagerVersion": "0.27.11",
   "Requirements": [],
   "AssemblyName": "DragonLibrary.dll",
   "EntryMethod": "DragonLibrary.Main.Load",

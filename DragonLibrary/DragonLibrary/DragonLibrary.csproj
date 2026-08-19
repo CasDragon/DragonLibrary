@@ -40,6 +40,7 @@
 			<Files Remove="$(TargetDir)\**\*.cache" />
 			<Files Remove="$(TargetDir)\**\UnityModManager.xml" />
 			<Files Include="$(TargetDir)\**\$(AssemblyName).dll" />
+			<Files Include="$(TargetDir)\**\0Harmony.dll" />
 			<Files Include="$(TargetDir)\**\$(AssemblyName).pdb" />
 			<Files Include="$(TargetDir)\**\BlueprintCore.dll" />
 			<ToDelete Include="$(TargetDir)\**\*.*" />
