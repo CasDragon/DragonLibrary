@@ -26,7 +26,7 @@ namespace DragonLibrary
             
             Log = modEntry.Logger;
             entry = modEntry;
-            UpdateHarmony();
+            //UpdateHarmony();
             HarmonyInstance = new Harmony(modEntry.Info.Id);
             try
             {
@@ -40,7 +40,7 @@ namespace DragonLibrary
             return true;
         }
         // Harmony Update Stuff
-        private static Version ParseFileVersion(string path) => Version.Parse(FileVersionInfo.GetVersionInfo(path).FileVersion);
+        /*private static Version ParseFileVersion(string path) => Version.Parse(FileVersionInfo.GetVersionInfo(path).FileVersion);
 
         private static void UpdateHarmony()
         {
@@ -99,7 +99,7 @@ namespace DragonLibrary
             }
             
             doUpdate();
-        }
+        }*/
         // End updating Harmony
 
         [HarmonyPatch(typeof(BlueprintsCache))]
