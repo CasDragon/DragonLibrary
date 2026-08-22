@@ -27,8 +27,7 @@ namespace DragonLibrary.NewComponents;
             }
             foreach (var damage in evt.DamageBundle)
             {
-                DiceFormula modifiedValue = damage.Dice.ModifiedValue;
-                int bonus = Value.Calculate(context) * modifiedValue.Rolls;
+                int bonus = Value.Calculate(context);
                 damage.AddModifier(bonus, base.Fact);
             }
         }
