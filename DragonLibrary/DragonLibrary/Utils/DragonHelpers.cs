@@ -8,12 +8,15 @@ namespace DragonLibrary.Utils
     {
         public static void RemoveComponent(BlueprintScriptableObject blueprint, BlueprintComponent component)
         {
-            blueprint.Components = blueprint.Components.Except([component]).ToArray();
+            if (blueprint.Components.Contains(component))
+                blueprint.Components = blueprint.Components.Except([component]).ToArray();
         }
         public static void RemoveComponent<T>(BlueprintScriptableObject blueprint)
             where T : BlueprintComponent
         {
-            blueprint.Components = blueprint.Components.Except([blueprint.GetComponent<T>()]).ToArray();
+            var comp = blueprint.GetComponent<T>();
+            if (comp != null)
+                blueprint.Components = blueprint.Components.Except([comp]).ToArray();
         }
         public static void RemoveSpellFromSpellList(BlueprintSpellList spellList, BlueprintAbility spell, int spellLevel)
         {
