@@ -1,0 +1,52 @@
+namespace DragonLibrary.ModRefs;
+
+public class PathOfRageRefs
+{
+    internal const string AspectOfLilithuActivatableAbility397edc56978045eab823f09b60c3cc37 = "397edc56978045eab823f09b60c3cc37";
+    internal const string AspectOfLilithuBuffc8afe1389f784c3eb863338026822b1e = "c8afe1389f784c3eb863338026822b1e";
+    internal const string AspectOfLilithuFeature55ffd90765874241b11ef8d906cab7d7 = "55ffd90765874241b11ef8d906cab7d7";
+    internal const string AspectOfLilithuSwitchBuff2a0a5451878b4e999a18ebdba6cdbd25 = "2a0a5451878b4e999a18ebdba6cdbd25";
+    internal const string AspectOfoolioddrooActivatableAbilityd2d274211870482b88f785598117a4ff = "d2d274211870482b88f785598117a4ff";
+    internal const string AspectOfoolioddrooBuff6b262f787f9d418ab65eae4c43eb6f54 = "6b262f787f9d418ab65eae4c43eb6f54";
+    internal const string AspectOfoolioddrooFeaturecc6c073561284ee1982e5d8453a1cbf5 = "cc6c073561284ee1982e5d8453a1cbf5";
+    internal const string AspectOfoolioddrooSwitchBuff9f00714512aa40059cc503ebfa9f877d = "9f00714512aa40059cc503ebfa9f877d";
+    internal const string CarnageBlastf51dce1d186d4ca2bf82a0042d01e0e4 = "f51dce1d186d4ca2bf82a0042d01e0e4";
+    internal const string carnagedebuffb7805ba3039e4be9ac3417a54d85365f = "b7805ba3039e4be9ac3417a54d85365f";
+    internal const string CarnageIncarnate3b571402e82b491aa9671eb7c77fcda2 = "3b571402e82b491aa9671eb7c77fcda2";
+    internal const string CarnageBuffAura = "0edcbd122ed84a3ba1ebf26d8d473b96";
+    internal const string ConsumeSoulsAbilityea6ea8860fe7470ab0bf427e598c494f = "ea6ea8860fe7470ab0bf427e598c494f";
+    internal const string ConsumeSoulsFeature30dcbf939783418c881d15f623d53bf9 = "30dcbf939783418c881d15f623d53bf9";
+    internal const string ConsumedSoulBuff15cfd2144ae342629f20d00f530435a6 = "15cfd2144ae342629f20d00f530435a6";
+    internal const string DemonBlast_1 = "6cf0d55c050c497a8b98e245435ce6aa";
+    internal const string DemonBlast_2 = "6fc3b519185341449e4a4fd803b34d35";
+    internal const string DemonSmash = "3013d6463fa34ff8bb46eba61b6ed581";
+    internal const string DemonAspectSelection = "1df9edd3e5f4485793e57a40e1d567f2";
+    internal const string demonAuraBuffaa8f461e04104b8099437b9806f6ee17 = "aa8f461e04104b8099437b9806f6ee17";
+    internal const string DemonCarnage = "6f4041fd6be843a8ae935fe1307aba08";
+    internal const string DemonicFormSinGuzzlere0edd270bb504b45937fb60d047e0fd5 = "e0edd270bb504b45937fb60d047e0fd5";
+    internal const string DemonicSinGuzzlerBalorTransformationd5139a7d4a5741b3afa6bea8baa7fe29 = "d5139a7d4a5741b3afa6bea8baa7fe29";
+    internal const string DemonPolyResourcefb938b3d9deb46b3b3a44de61cd2d574 = "fb938b3d9deb46b3b3a44de61cd2d574";
+    internal const string DemonRipResourced7a3af1bdffd4d31998271bffd04822f = "d7a3af1bdffd4d31998271bffd04822f";
+    internal const string DemonSmash23d7996386d64d67a83e79f5bc5fedaf = "23d7996386d64d67a83e79f5bc5fedaf";
+    internal const string DemonSmashResource40536705671e4e96979a10a41ea6057e = "40536705671e4e96979a10a41ea6057e";
+    internal const string DemonSoulResource0c9c6e7290a9412fade8d97291a005e3 = "0c9c6e7290a9412fade8d97291a005e3";
+    internal const string DemonTearResource3c30cf94f6de45a9a79943970fa7a2f5 = "3c30cf94f6de45a9a79943970fa7a2f5";
+    internal const string Fireball00 = "fec53329817f4aa6a9210be9867a8930";
+    internal const string Frenzy766217fd9e3d41388d4fac3502598afb = "766217fd9e3d41388d4fac3502598afb";
+    internal const string MightyDemonRage1f060f9057a240b7a11a8d5987ef7a20 = "1f060f9057a240b7a11a8d5987ef7a20";
+    internal const string MightyDemonRaged29e501d44834fae90f9ffa254bb1644 = "d29e501d44834fae90f9ffa254bb1644";
+    internal const string MorbidRestorationHealingAbility = "ecf53e56935c4a7ab35cd4c4496657f2";
+    internal const string Mythic4lvlDemonMorbidRestoration00 = "41ad3d7c303b4689b029d0163fc8a88b";
+    internal const string NewDemonRageResourcebc2c2f64ada54c78a250f8b72c48ae57 = "bc2c2f64ada54c78a250f8b72c48ae57";
+    internal const string NocticulaAspectCooldown08f90eccfeed403a81a0f9e44a50870a = "08f90eccfeed403a81a0f9e44a50870a";
+    internal const string OutOfCombat92b4d9ebd91d4759b9a90423c9a587b5 = "92b4d9ebd91d4759b9a90423c9a587b5";
+    internal const string RendAsunderBuff0ca731b3293c4deaa30c1a5444e901d6 = "0ca731b3293c4deaa30c1a5444e901d6";
+    internal const string RendAsunderb044212d111b4e26865344982084e5c7 = "b044212d111b4e26865344982084e5c7";
+    internal const string UncontrollableRageBuff6085f92c82224d6ca57d41f8c514c635 = "6085f92c82224d6ca57d41f8c514c635";
+    internal const string UncontrollableRage151533265f3343d9a21ceda522aec033 = "151533265f3343d9a21ceda522aec033";
+    internal const string UnleashedDemonbbd26df513044c01a56b5fad024a86bc = "bbd26df513044c01a56b5fad024a86bc";
+    internal const string UnleashedSinGuzzler6c8f47ae288f44d5bfa621d2c91b7594 = "6c8f47ae288f44d5bfa621d2c91b7594";
+    internal const string UnstableBalorTransformation_1 = "70c2561e9fa94633930c815b03f90f4f";
+    internal const string UnstableBalorTransformation_2 = "e30768ff138f4ab5b94703df2aa72a6a";
+    internal const string VictimofCarnaged10450d49b0649418c64c182221c22e2 = "d10450d49b0649418c64c182221c22e2";
+}

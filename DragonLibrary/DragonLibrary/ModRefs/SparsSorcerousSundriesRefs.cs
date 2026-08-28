@@ -1,0 +1,53 @@
+namespace DragonLibrary.ModRefs;
+
+public class SparsSorcerousSundriesRefs
+{
+    internal const string AnathemasBiteItem = "3d03d4e3a1d7439693d2443a72ca4dd0";
+    internal const string AnathemasBiteItemBuff = "933369a8db4e4e5fb93360ce40be1b50";
+    internal const string AnathemasBiteItemEnhancement = "aee05461d71940d29712c94b01927230";
+    internal const string ArmyScytheItem = "b1e668c61b254a069036f81b793284fe";
+    internal const string ArmyScytheItemEnhancement = "b4759f4143a74329a6e2e70f22b2cc7b";
+    internal const string BookOfInfiniteSpellsItem = "42f0470040ee4782a0170d9175c2ec36";
+    internal const string BookOfSpellsAbil = "9de6f5ec6f6c40f7923267ec663b26f2";
+    internal const string CatskinArmor = "20e38b76580c4cd7bb4d97415b4a800e";
+    internal const string CatskinEnch = "a9615052aec1497f9c4724292f597b78";
+    internal const string gilanswerlistroot = "5802c241bc4f470d9e94ac19074b828b";
+    internal const string gilexitcue = "43469cf7c6554fdfae360ff6eac12074";
+    internal const string gilfirsttimecue = "df23645b69214f35933f8060e5b0736b";
+    internal const string gilnormalgreetingcue = "e11259b7995543a9b200ade2557451d7";
+    internal const string gilrootcue = "3ae5ed0dba1243e6a8b7ddd3e030bb6d";
+    internal const string gilshopawns = "5a7edac783224756a876680a7f241d0d";
+    internal const string gilshopleave = "ddab5e2032194cf7aa127fdce5160393";
+    internal const string GilmoreBlueprintUnit = "e3d22bfa8c884a1e9c067ad3096dfcfc";
+    internal const string gilmoreservicedialog = "cbf8405cb71d47c49b51b43c6ad925f6";
+    internal const string GilmoresVendorList = "712c04b716fe41ef962139cd8394b62f";
+    internal const string IceArrowQuiverAbil = "1f03b8b6c2c44c779aa2ef345deba9c1";
+    internal const string IceArrowQuiverBuff = "a32b2e2b9db14a9b956a411353923fd3";
+    internal const string IceArrowQuiverItem = "b9a5fe38d91f4aa4a761107f8864a172";
+    internal const string LightningRod = "550380f4d25e4d70af759dd599e9379a";
+    internal const string LightningRodEnchant = "5ce35a7d62214492aed0926cce0059ba";
+    internal const string LightningRodFact = "a4bc8044380040d984cbaa36d1f5186f";
+    internal const string LightningRodZap = "a5877f5b8a4848128f82d4ca43d73a05";
+    internal const string MagesMigraineItem = "a4300ff8b0e443ceb2fe21ccb8f6c2e1";
+    internal const string MagesMigraineItemBuff = "fa005a109bc348c0864179e74d973ff0";
+    internal const string MagesMigraineItemEnhancement = "ff460d0b5b914ce683ccd533c31b0344";
+    internal const string marchingShakenAbility = "f513a0d7eb0647d0a5baf57350f23ede";
+    internal const string MissleStormBarrage = "f14f86317be94a7a8069220f95f4b266";
+    internal const string MissleStormSpell = "8e13fcf87e70418e8929861455fb8adf";
+    internal const string MTEn1 = "3ab8998ed32d4cb2970e856fcf600bd4";
+    internal const string PBFXEn1 = "12d8411bfd8c498bb141818cb9400897";
+    internal const string PBFXEn2 = "de8a549813ee414caf30476bcd8c852c";
+    internal const string PBFXEn3 = "5454afbbb9e445169119f2a5791e7eeb";
+    internal const string PotofEndlessFoodItem = "53549e296e8342228b459311f17f21b5";
+    internal const string PotofFoodAbil = "53549e2972ff42228b459311f17f21b5";
+    internal const string PrismaticBlade = "8675fb30a6bd42f4bc3abe1a070cadf6";
+    internal const string PrismaticFluctuation2 = "d6a717601f42490381acf266e04d3ee9";
+    internal const string PrismBladeFeature = "afd7baa3aeb9462b9b7b2671f08be6a0";
+    internal const string RingofShieldEnhancement = "22951e72e54846249a44ff3af70815cf";
+    internal const string RingofShieldFeature = "f26372c50ced4c12bc3e15d313ad0b89";
+    internal const string RingofShieldItem = "11951e72e54846249a44ff3af70815cf";
+    internal const string BastardSwordPrismaticBlade = "ba0671e5a9bd4fab85e571b3de369936";
+    internal const string HellfireQuiver = "5ca3486f9823411880b08f9c5dbdf7c3";
+    internal const string PrismaticBladeEnchant = "13959fb2530a4256b9651fc238766cef";
+    internal const string PrismaticFluctuation = "b4a030f38e9641a7ae00d0fba84cd423";
+}
