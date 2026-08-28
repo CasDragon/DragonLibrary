@@ -59,6 +59,9 @@
 		<PackageReference Include="WW-Blueprint-Core" Version="*" />
 		<PackageReference Include="ILRepack.MSBuild.Task" Version="2.*" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="ModRefs\" />
+	</ItemGroup>
 	<Target Name="GenerateCustomPropsFile" Condition="$(WrathInstallDir) == ''">
 		<Exec Command="findstr /C:&quot;Mono path[0]&quot; &quot;$(WrathData)\Player.log&quot;" IgnoreExitCode="true" ConsoleToMSBuild="true">
 			<Output TaskParameter="ExitCode" PropertyName="ExitCode" />
