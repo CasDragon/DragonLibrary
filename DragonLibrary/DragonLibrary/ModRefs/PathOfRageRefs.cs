@@ -17,8 +17,8 @@ public class PathOfRageRefs
     internal const string ConsumeSoulsAbilityea6ea8860fe7470ab0bf427e598c494f = "ea6ea8860fe7470ab0bf427e598c494f";
     internal const string ConsumeSoulsFeature30dcbf939783418c881d15f623d53bf9 = "30dcbf939783418c881d15f623d53bf9";
     internal const string ConsumedSoulBuff15cfd2144ae342629f20d00f530435a6 = "15cfd2144ae342629f20d00f530435a6";
-    internal const string DemonBlast_1 = "6cf0d55c050c497a8b98e245435ce6aa";
-    internal const string DemonBlast_2 = "6fc3b519185341449e4a4fd803b34d35";
+    internal const string DemonBlast = "6cf0d55c050c497a8b98e245435ce6aa";
+    internal const string DemonBlast_6fc3b519185341449e4a4fd803b34d35 = "6fc3b519185341449e4a4fd803b34d35";
     internal const string DemonSmash = "3013d6463fa34ff8bb46eba61b6ed581";
     internal const string DemonAspectSelection = "1df9edd3e5f4485793e57a40e1d567f2";
     internal const string demonAuraBuffaa8f461e04104b8099437b9806f6ee17 = "aa8f461e04104b8099437b9806f6ee17";
@@ -46,7 +46,7 @@ public class PathOfRageRefs
     internal const string UncontrollableRage151533265f3343d9a21ceda522aec033 = "151533265f3343d9a21ceda522aec033";
     internal const string UnleashedDemonbbd26df513044c01a56b5fad024a86bc = "bbd26df513044c01a56b5fad024a86bc";
     internal const string UnleashedSinGuzzler6c8f47ae288f44d5bfa621d2c91b7594 = "6c8f47ae288f44d5bfa621d2c91b7594";
-    internal const string UnstableBalorTransformation_1 = "70c2561e9fa94633930c815b03f90f4f";
-    internal const string UnstableBalorTransformation_2 = "e30768ff138f4ab5b94703df2aa72a6a";
+    internal const string UnstableBalorTransformation = "70c2561e9fa94633930c815b03f90f4f";
+    internal const string UnstableBalorTransformation_e30768ff138f4ab5b94703df2aa72a6a = "e30768ff138f4ab5b94703df2aa72a6a";
     internal const string VictimofCarnaged10450d49b0649418c64c182221c22e2 = "d10450d49b0649418c64c182221c22e2";
 }

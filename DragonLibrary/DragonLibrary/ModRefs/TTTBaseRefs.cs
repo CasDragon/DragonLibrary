@@ -1424,11 +1424,11 @@ public class TTTBaseRefs
     internal const string ArmorTrainingSelection = "354f1a4426d24ea38718905108f48e72";
     internal const string ArmorTrainingSpeedFeature = "1238eb1fb3a946b5868f500f07b974d5";
     internal const string FighterArmorTrainingProperty = "8889a638d9be4379ab9a5c2e08fd5015";
-    internal const string LoremasterSpellbookMasterID_1 = "90ba743cc8724721ae56c7914bf5659b";
+    internal const string LoremasterSpellbookMasterID = "90ba743cc8724721ae56c7914bf5659b";
     internal const string LoremasterSpellbookMyrmidarchTTT = "7eb054fec4474feb9fd82efcaab80d5a";
     internal const string BroadStudyMasterID = "da03266450ce4387879f43ea98e34bf3";
     internal const string GreatKenningMasterID = "70c84e6b8d4149ae866f18af03c46f6f";
-    internal const string LoremasterSpellbookMasterID_2 = "b8976e560bf5495cb370de671dec943b";
+    internal const string LoremasterSpellbookMasterID_b8976e560bf5495cb370de671dec943b = "b8976e560bf5495cb370de671dec943b";
     internal const string LoremasterSpellbookEMCTTT = "0d3d36575f3250f8aa5a246028a7e596";
     internal const string LoremasterSpellbookRavenerHunterTTT = "59f72f70bf67086529adf1f4441be3d3";
     internal const string LoremasterSpellbookScarredWitchDoctorTTT = "2e52a5d359556a48d8b5cf00baf7596f";

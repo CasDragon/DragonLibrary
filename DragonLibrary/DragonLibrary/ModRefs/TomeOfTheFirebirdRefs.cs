@@ -281,10 +281,10 @@ public class TomeOfTheFirebirdRefs
     internal const string ArmorTrainingSpeedFeature = "1238eb1fb3a946b5868f500f07b974d5";
     internal const string BloodragerPhoenixMetamagicRagerFeatSelection = "96bdf4fdc1fb4827af32d710076442fe";
     internal const string CombatBoostFeatureSelector = "61e10ddc7557400a94e9e1c30db0dd04";
-    internal const string DiminishedSpellcastingMaster_1 = "ba5d3cd129c34836ae1d88467323c6cd";
+    internal const string DiminishedSpellcastingMaster = "ba5d3cd129c34836ae1d88467323c6cd";
     internal const string FighterArmorTrainingProperty = "8889a638d9be4379ab9a5c2e08fd5015";
     internal const string KineticAdaptProperty = "f3296307e0b0423db595c8bc1317d37f";
-    internal const string DiminishedSpellcastingMaster_2 = "ba5d3cd129c34836ae1d88467323c6cd";
+    internal const string DiminishedSpellcastingMaster_ba5d3cd129c34836ae1d88467323c6cd = "ba5d3cd129c34836ae1d88467323c6cd";
     internal const string FighterCombatBoostsMaster = "eac85f2c87c44918b961b1968a2b2507";
     internal const string BraveryCombatBoostProgression = "1cf0d66a7e303bece134202e84b40155";
     internal const string ClericCrusaderReducedSpellcastingFeature = "d1a642a59cf3bb4235448ac0ae085dfd";

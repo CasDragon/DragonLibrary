@@ -2,7 +2,7 @@ namespace DragonLibrary.ModRefs;
 
 public class SwashbucklerRefs
 {
-    internal const string guid33E0B750265E408EA5A28FEF5E029CF0 = "33e0b750265e408ea5a28fef5e029cf0";
+    internal const string _33E0B750265E408EA5A28FEF5E029CF0 = "33e0b750265e408ea5a28fef5e029cf0";
     internal const string AbundantPanacheFeat = "bd2a0ac5ab534a3fbe668460c496e5da";
     internal const string Affection = "a51c6f87f7ed4df790920dac7ef31f9f";
     internal const string AffectionAbility = "ced8015a494a492b998f0abc78187d87";
