@@ -36,6 +36,18 @@ namespace DragonLibrary.BPCoreExtensions
             };
             return configurator.AddComponent(element);
         }
+        public static TBuilder AddCasterStatToDC<T1, TBuilder>(
+            this BaseUnitFactConfigurator<T1, TBuilder> configurator,
+            ModifierDescriptor descriptor)
+            where T1 : BlueprintUnitFact
+            where TBuilder : BaseUnitFactConfigurator<T1, TBuilder>
+        {
+            CasterStatToDC element = new()
+            {
+                Descriptor = descriptor
+            };
+            return configurator.AddComponent(element);
+        }
         public static TBuilder AddBonusToAbilityDC<T1, TBuilder>(
             this BaseUnitFactConfigurator<T1, TBuilder> configurator,
             BlueprintAbility ability,

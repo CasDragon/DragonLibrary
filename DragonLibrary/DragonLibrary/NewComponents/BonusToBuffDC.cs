@@ -14,6 +14,7 @@ namespace DragonLibrary.NewComponents
     [AllowMultipleComponents]
     [AllowedOn(typeof(BlueprintUnitFact), false)]
     [TypeId("2f80d83c-70b7-402d-8dec-6aee57df9043")]
+    [ComponentName("Bonus to Buff DC")]
     public class BonusToBuffDC : UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleCalculateAbilityParams>, IRulebookHandler<RuleCalculateAbilityParams>, ISubscriber, IInitiatorRulebookSubscriber
     {
         public BlueprintBuff Buff
@@ -28,8 +29,7 @@ namespace DragonLibrary.NewComponents
         public void OnEventAboutToTrigger(RuleCalculateAbilityParams evt)
         {
             if (evt.Spell != Buff) return;
-            var context = evt.Reason.Context;
-            int bonus = context!.MaybeCaster?.Stats.GetStat(Stat)?.ModifiedValue ?? 0;
+            int bonus = evt.Reason.Caster?.Stats.GetStat(Stat)?.ModifiedValue ?? 0;
             if (bonus > 0)
                 evt.AddBonusDC(bonus, Descriptor);
         }

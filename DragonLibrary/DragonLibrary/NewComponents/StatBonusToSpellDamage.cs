@@ -28,7 +28,7 @@ namespace DragonLibrary.NewComponents;
             foreach (var damage in evt.DamageBundle)
             {
                 int bonus = Value.Calculate(context);
-                damage.AddModifier(bonus, base.Fact);
+                damage.AddModifier(bonus, Fact);
             }
         }
 
