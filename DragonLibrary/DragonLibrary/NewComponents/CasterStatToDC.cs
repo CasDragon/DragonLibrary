@@ -30,7 +30,7 @@ public class CasterStatToDC : UnitFactComponentDelegate, IInitiatorRulebookHandl
         StatType castingStat = evt.Spellbook!.Blueprint.CastingAttribute;
         int bonus = evt.Reason.Caster?.Stats.GetStat<ModifiableValueAttributeStat>(castingStat)?.Bonus ?? 0;
         if (bonus > 0)
-            evt.AddBonusDC(bonus, evt.Reason.Fact, Descriptor);
+            evt.AddBonusDC(bonus, Fact, Descriptor);
     }
 
     public void OnEventDidTrigger(RuleCalculateAbilityParams evt)

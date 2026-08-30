@@ -1,4 +1,5 @@
-﻿using Kingmaker.Blueprints;
+﻿using DragonLibrary.BaseGameExtensions;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
@@ -31,7 +32,7 @@ namespace DragonLibrary.NewComponents
             if (evt.Spell != Buff) return;
             int bonus = evt.Reason.Caster?.Stats.GetStat(Stat)?.ModifiedValue ?? 0;
             if (bonus > 0)
-                evt.AddBonusDC(bonus, Descriptor);
+                evt.AddBonusDC(bonus, Fact, Descriptor);
         }
 
         public void OnEventDidTrigger(RuleCalculateAbilityParams evt)
