@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Text.RegularExpressions;
 using Kingmaker.Localization;
+using ModMenu.NewTypes.ModRecording;
 using ModMenu.Settings;
 using UnityModManagerNet;
 
@@ -63,6 +64,24 @@ namespace DragonLibrary.Utils
     {
         private static string RootKey = "";
         
+        public static void MarkNotSaveDependent(UnityModManager.ModEntry modEntry)
+        {
+            SaveSlotWithModListVM.AddToNamesExclusion(modEntry.Info.AssemblyName);
+        }
+
+        public static void MarkExcludeEntirely(UnityModManager.ModEntry modEntry)
+        {
+            SaveSlotWithModListVM.AddToExcludeEntirely(modEntry.Info.AssemblyName);
+        }
+        public static void MarkNotSaveDependent(string modid)
+        {
+            SaveSlotWithModListVM.AddToNamesExclusion(modid);
+        }
+
+        public static void MarkExcludeEntirely(string  modid)
+        {
+            SaveSlotWithModListVM.AddToExcludeEntirely(modid);
+        }
 
         public static void InitializeSettings(string rootKey, string modName, UnityModManager.ModEntry entry)
         {

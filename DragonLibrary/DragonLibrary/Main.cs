@@ -121,6 +121,7 @@ namespace DragonLibrary
                     Initialized = true;
                     Log.Log("Checking for mods for compatibility patches");
                     ModCompat.CheckForMods();
+                    SettingsAction.MarkNotSaveDependent(entry);
                 }
                 catch (Exception e)
                 {
