@@ -33,11 +33,11 @@ namespace DragonLibrary.NewComponents
         }
         private void AddToKnown()
         {
-            foreach (ClassData classData in this.Owner.Progression.Classes)
+            foreach (ClassData classData in Owner.Progression.Classes)
             {
                 if (classData.Spellbook is not { IsMythic: false }) continue;
-                Spellbook spellbook = this.Owner.Descriptor.GetSpellbook(classData.Spellbook);
-                if (spellbook == null) continue;
+                Spellbook spellbook = Owner.Descriptor.GetSpellbook(classData.Spellbook);
+                if (spellbook == null) return;
                 var sblvl = spellbook.GetMaxSpellLevel();
                 if (sblvl < spelllevel)
                 {
@@ -48,15 +48,13 @@ namespace DragonLibrary.NewComponents
         }
         private void RemoveFromKnown()
         {
-            foreach (ClassData classData in this.Owner.Progression.Classes)
+            foreach (ClassData classData in Owner.Progression.Classes)
             {
-                if (classData.Spellbook is { IsMythic: false })
-                {
-                    Spellbook spellbook = this.Owner.Descriptor.GetSpellbook(classData.Spellbook);
-                    if (spellbook == null) continue;
-                    AbilityData abilityData = spellbook.SureKnownSpells(spelllevel).FirstItem((AbilityData s) => s.Blueprint == spell.GetBlueprint());
-                    spellbook.RemoveTemporarySpell(abilityData);
-                }
+                if (classData.Spellbook is not { IsMythic: false }) continue;
+                Spellbook spellbook = Owner.Descriptor.GetSpellbook(classData.Spellbook);
+                if (spellbook == null) return;
+                AbilityData abilityData = spellbook.SureKnownSpells(spelllevel).FirstItem((AbilityData s) => s.Blueprint == spell.GetBlueprint());
+                spellbook.RemoveTemporarySpell(abilityData);
             }
         }
         private static AbilityData AddKnownTemporary(Spellbook sb, int spellLevel, BlueprintAbility blueprint)
