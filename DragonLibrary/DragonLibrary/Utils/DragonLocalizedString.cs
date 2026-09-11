@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Kingmaker.Blueprints.JsonSystem;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using UnityModManagerNet;
 
 namespace DragonLibrary.Utils
@@ -33,7 +34,8 @@ namespace DragonLibrary.Utils
             if (File.Exists(Path.Combine(path, "LocalizedStrings.json")))
             {
                 var x = File.ReadAllText(Path.Combine(path, "LocalizedStrings.json"));
-                locales = JsonConvert.DeserializeObject<List<LocString>>(x);
+                var old = JsonConvert.DeserializeObject<List<LocString>>(x);
+                locales = old.GroupBy(y => y.Key).Select(y => y.First()).ToList();
             }
             foreach (var field in fields)
             {

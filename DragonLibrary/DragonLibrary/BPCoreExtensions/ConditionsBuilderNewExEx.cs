@@ -1,6 +1,7 @@
 ﻿using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using DragonLibrary.NewComponents;
+using DragonLibrary.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
@@ -59,6 +60,31 @@ namespace DragonLibrary.BPCoreExtensions
             var element = new ConditionIsSummon()
             {
                 Not = not
+            };
+            return builder.Add(element);
+        }
+        public static ConditionsBuilder IsSummon(
+            this ConditionsBuilder builder,
+            bool not=false)
+        {
+            var element = new ConditionIsSummon()
+            {
+                Not = not
+            };
+            return builder.Add(element);
+        }
+
+        public static ConditionsBuilder IsWeaponCategoryGroupEquipped(
+            this ConditionsBuilder builder,
+            WeaponGroupCategory category,
+            bool checkOnCaster = true,
+            bool checkMainHand = true)
+        {
+            var element = new ConditionIsWeaponCategoryEquipped()
+            {
+                CheckOnCaster =  checkOnCaster,
+                CheckMainHand = checkMainHand,
+                Category = category,
             };
             return builder.Add(element);
         }

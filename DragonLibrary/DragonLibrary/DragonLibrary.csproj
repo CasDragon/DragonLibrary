@@ -5,7 +5,7 @@
 		<TargetFramework>net48</TargetFramework>
 		<AssemblyName>DragonLibrary</AssemblyName>
 		<Description>DragonLibrary</Description>
-		<Version>1.2.8</Version>
+		<Version>1.2.9</Version>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>latest</LangVersion>
 		<RootNamespace>DragonLibrary</RootNamespace>
@@ -24,6 +24,7 @@
 		<Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\Newtonsoft.Json.dll*" />
 		<Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\UniRx.dll*" Private="false" />
 		<Reference Include="0Harmony.dll*" />
+		<Reference Include="BlueprintCore.dll*" />
 		<Reference Include="$(WrathInstallDir)\Mods\ModMenu\ModMenu.dll" />
 		<Reference Include="$(WrathInstallDir)\Mods\WrathScalingItemDCs\WrathScalingItemDCs.dll" />
 		<Reference Include="$(WrathInstallDir)\Mods\TabletopTweaks-Core\TabletopTweaks-Core.dll" />
@@ -32,6 +33,7 @@
 	<ItemGroup>
 		<None Include="Info.json" CopyToOutputDirectory="PreserveNewest" />
 		<None Include="0Harmony.dll" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="BlueprintCore.dll" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 	<Target Name="Deploy" AfterTargets="Build">
 		<ItemGroup>
@@ -56,7 +58,6 @@
 		<PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
 		<PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" IncludeAssets="build; contentfiles" Version="0.4.2" PrivateAssets="all" />
 		<PackageReference Include="MicroUtils.HarmonyAnalyzers" IncludeAssets="runtime; build; native; contentfiles; analyzers" Version="*-*" PrivateAssets="all" />
-		<PackageReference Include="WW-Blueprint-Core" Version="*" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="ModRefs\" />
