@@ -48,6 +48,20 @@ namespace DragonLibrary.BPCoreExtensions
             };
             return configurator.AddComponent(element);
         }
+        public static TBuilder AddIncreaseCasterLevelForSpells<T1, TBuilder>(
+            this BaseUnitFactConfigurator<T1, TBuilder> configurator,
+            ContextValue value,
+            ModifierDescriptor descriptor)
+            where T1 : BlueprintUnitFact
+            where TBuilder : BaseUnitFactConfigurator<T1, TBuilder>
+        {
+            IncreaseCasterLevelForSpells element = new()
+            {
+                Value = value,
+                Descriptor = descriptor
+            };
+            return configurator.AddComponent(element);
+        }
         public static TBuilder AddBonusToAbilityDC<T1, TBuilder>(
             this BaseUnitFactConfigurator<T1, TBuilder> configurator,
             BlueprintAbility ability,
